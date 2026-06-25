@@ -1,0 +1,126 @@
+/* --------------------------------------------------
+   STAFF THEME — CLEAN, CINEMATIC, CONTROL PANEL
+-------------------------------------------------- */
+
+:root {
+  --staff-blue: #4fb9ff;
+  --staff-gold: #ffcc33;
+  --staff-dark: #0a0c10;
+  --staff-text: #eef7ff;
+  --staff-panel: rgba(0,0,0,0.55);
+  --staff-border: rgba(255,204,51,0.4);
+  --staff-radius: 16px;
+  --staff-transition: 0.25s ease;
+}
+
+/* Background */
+body {
+  margin: 0;
+  padding: 0;
+  background: url('/network/public/img/network-back.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Crimson Pro', serif;
+  color: var(--staff-text);
+  overflow-x: hidden;
+}
+
+/* Lightning overlay */
+.staff-lightning {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255,255,0,0.25) 0%, transparent 70%);
+  opacity: 0;
+  animation: staffFlash 6s infinite;
+}
+
+@keyframes staffFlash {
+  0%, 93%, 100% { opacity: 0; }
+  94% { opacity: 0.9; }
+  95% { opacity: 0.2; }
+  96% { opacity: 0.8; }
+}
+
+/* Header */
+.staff-header {
+  text-align: center;
+  padding: 60px 20px 40px;
+  background: rgba(0,0,0,0.55);
+  border-bottom: 2px solid var(--staff-gold);
+  box-shadow: 0 0 25px var(--staff-blue);
+}
+
+.staff-logo {
+  width: 140px;
+  filter: drop-shadow(0 0 12px var(--staff-blue));
+}
+
+.staff-title {
+  font-family: 'Cinzel', serif;
+  font-size: 3rem;
+  margin: 10px 0 0;
+  color: var(--staff-gold);
+  text-shadow: 0 0 12px var(--staff-blue);
+}
+
+.staff-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Panel */
+.staff-panel {
+  width: 92%;
+  max-width: 600px;
+  margin: 40px auto;
+  background: var(--staff-panel);
+  border: 2px solid var(--staff-border);
+  border-radius: var(--staff-radius);
+  padding: 30px;
+  box-shadow: 0 0 20px var(--staff-blue);
+}
+
+/* Inputs */
+.staff-input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-top: 8px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  border: 2px solid var(--staff-gold);
+  background: rgba(0,0,0,0.55);
+  color: var(--staff-text);
+  font-size: 1rem;
+  outline: none;
+  transition: var(--staff-transition);
+}
+
+.staff-input::placeholder {
+  color: rgba(255,255,255,0.55);
+}
+
+.staff-input:focus {
+  border-color: var(--staff-blue);
+  box-shadow: 0 0 18px var(--staff-blue);
+  transform: scale(1.02);
+}
+
+/* Button */
+.staff-btn {
+  display: inline-block;
+  padding: 14px 22px;
+  background: rgba(0,0,0,0.6);
+  border: 2px solid var(--staff-gold);
+  border-radius: 12px;
+  color: var(--staff-gold);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--staff-transition);
+}
+
+.staff-btn:hover {
+  background: var(--staff-gold);
+  color: black;
+  box-shadow: 0 0 20px var(--staff-blue);
+}

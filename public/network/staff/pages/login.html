@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Staff Login — The Network</title>
+
+    <link rel="icon" type="image/jpeg" href="/network/public/img/network-logo.jpg">
+
+    <!-- STAFF-ONLY STYLESHEET -->
+    <link rel="stylesheet" href="/network/staff/css/staff.css">
+
+    <meta property="og:title" content="Staff Login — The Network">
+    <meta property="og:description" content="Access your staff dashboard.">
+    <meta property="og:image" content="/network/public/img/network-logo.jpg">
+</head>
+
+<body>
+
+    <div class="staff-lightning"></div>
+
+    <header class="staff-header">
+        <img src="/network/public/img/network-logo.jpg" class="staff-logo">
+        <h1 class="staff-title">Staff Login</h1>
+        <p class="staff-subtitle">Access your dashboard and manage your presence.</p>
+    </header>
+
+    <section class="staff-panel">
+        <h2>Login</h2>
+
+        <label>Email</label>
+        <input id="li-email" class="staff-input" type="email" placeholder="you@example.com">
+
+        <label>Password</label>
+        <input id="li-password" class="staff-input" type="password" placeholder="••••••••">
+
+        <button class="staff-btn" onclick="Auth.handleLogin()">Login</button>
+    </section>
+
+    <script src="/network/public/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Beltline Courtesy — Boardwalk Beltline</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+
+    <!-- SOCIAL PREVIEW -->
+    <meta property="og:title" content="Beltline Courtesy — Boardwalk Beltline">
+    <meta property="og:description" content="Proper etiquette, safety, and respect on the Atlanta Beltline.">
+    <meta property="og:image" content="../assets/img/bb-inc.png">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Beltline Courtesy — Boardwalk Beltline">
+    <meta name="twitter:description" content="How to walk, ride, skate, and move safely on the Beltline.">
+    <meta name="twitter:image" content="../assets/img/bb-inc.png">
+
+    <!-- MASTER CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* LOGO BURGER MENU */
+        .logo {
+            width: 160px;
+            height: 60px;
+            background-image: url('../assets/img/bbi-logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: left center;
+            cursor: pointer;
+        }
+
+        /* MOBILE MENU */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 90px;
+            left: 20px;
+            background: rgba(0,0,0,0.92);
+            padding: 25px;
+            border-radius: 14px;
+            border: 1px solid var(--ember-soft);
+            z-index: 999;
+        }
+        .mobile-menu a {
+            display: block;
+            margin: 14px 0;
+            color: var(--yellow);
+            font-family: 'Cinzel', serif;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+        }
+
+        /* DROPDOWNS */
+        .dropdown {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .dropdown-btn {
+            width: 100%;
+            padding: 14px 20px;
+            background: rgba(255,155,40,0.15);
+            border: 1px solid var(--ember-soft);
+            border-radius: 12px;
+            color: var(--yellow);
+            font-family: 'Cinzel', serif;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .dropdown-btn:hover {
+            background: rgba(255,155,40,0.25);
+        }
+        .dropdown-content {
+            display: none;
+            padding: 20px;
+            background: rgba(0,0,0,0.55);
+            border: 1px solid var(--ember-soft);
+            border-radius: 12px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LOADING SCREEN -->
+    <div id="loading-screen">
+        <div class="loading-icon"></div>
+        <div class="loading-bar"><div class="loading-bar-fill"></div></div>
+    </div>
+
+    <!-- BACKGROUND -->
+    <div class="page-bg" style="background-image: url('../assets/img/bb-inc.png');"></div>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="logo" onclick="toggleMenu()"></div>
+
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="workshops.html">Workshops</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="beltline.html">Beltline Feed</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="marker-system.html">Marker System</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="workshops.html">Workshops</a>
+            <a href="shop.html">Shop</a>
+            <a href="beltline.html">Beltline Feed</a>
+            <a href="community.html">Community</a>
+            <a href="map.html">Map</a>
+            <a href="marker-system.html">Marker System</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <section class="page-content">
+        <h1>Beltline Courtesy & Etiquette</h1>
+        <p>How to move, ride, walk, and enjoy the Beltline with respect, safety, and flow.</p>
+
+        <!-- SECTION 1 -->
+        <div class="card">
+            <h2>Core Courtesy Rules</h2>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDrop(1)">Walkers — Stay to the Right</button>
+                <div class="dropdown-content" id="drop1">
+                    <p>Walking traffic should always stay to the right side of the trail.</p>
+                    <p>This keeps the center lane open for wheels and passing.</p>
+                    <p>Think of it like a sidewalk: the **man walks on the “street side”**, which on the Beltline means the **middle lane**.</p>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDrop(2)">Wheels — Pass Through the Middle</button>
+                <div class="dropdown-content" id="drop2">
+                    <p>Bikes, skaters, scooters, and boards should use the **center lane** to pass.</p>
+                    <p>Call out “On your left!” when passing.</p>
+                    <p>Slow down around crowds, kids, dogs, and strollers.</p>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDrop(3)">Respect the Flow</button>
+                <div class="dropdown-content" id="drop3">
+                    <p>The Beltline works because everyone moves with awareness.</p>
+                    <p>Don’t block the trail. Don’t stop in the middle. Step aside if you need to pause.</p>
+                    <p>We’re all here to enjoy the same space.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2 -->
+        <div class="card">
+            <h2>Safety & Awareness</h2>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDrop(4)">Be Vigilant After Dark</button>
+                <div class="dropdown-content" id="drop4">
+                    <p>Stay aware of your surroundings.</p>
+                    <p>Stick to well‑lit areas.</p>
+                    <p>Move with a group when possible.</p>
+                    <p>Know your nearest emergency pole number.</p>
+                    <p>Trust your instincts — if something feels off, move away.</p>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDrop(5)">Treat Everyone With Respect</button>
+                <div class="dropdown-content" id="drop5">
+                    <p>Say excuse me. Smile. Share the space.</p>
+                    <p>Don’t blast music without headphones.</p>
+                    <p>Don’t film people without permission.</p>
+                    <p>We’re all out here to have a good time.</p>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDrop(6)">Dogs, Kids & Groups</button>
+                <div class="dropdown-content" id="drop6">
+                    <p>Keep dogs close and leashed.</p>
+                    <p>Kids should stay to the right with adults.</p>
+                    <p>Large groups should walk single‑file when crowded.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3 -->
+        <div class="card">
+            <h2>Navigation Basics</h2>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDrop(7)">How to Move Smoothly</button>
+                <div class="dropdown-content" id="drop7">
+                    <p>Walk right. Pass center. Stop left or off‑trail.</p>
+                    <p>Signal with your voice when passing.</p>
+                    <p>Keep your pace consistent.</p>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDrop(8)">What Not to Do</button>
+                <div class="dropdown-content" id="drop8">
+                    <p>Don’t block the trail.</p>
+                    <p>Don’t weave unpredictably.</p>
+                    <p>Don’t stop in the center lane.</p>
+                    <p>Don’t ride aggressively or recklessly.</p>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDrop(9)">Emergency Awareness</button>
+                <div class="dropdown-content" id="drop9">
+                    <p>Know your nearest pole number.</p>
+                    <p>Call 911 for emergencies.</p>
+                    <p>Use <a href="marker-system.html" style="color:var(--yellow);">the Marker System</a> to identify your location.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function toggleDrop(n) {
+            const box = document.getElementById("drop" + n);
+            box.style.display = box.style.display === "block" ? "none" : "block";
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const loader = document.getElementById("loading-screen");
+            setTimeout(() => loader.classList.add("hidden"), 800);
+        });
+    </script>
+
+</body>
+</html>

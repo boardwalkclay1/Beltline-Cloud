@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard — Boardwalk Beltline</title>
+
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        header {
+            padding: 22px 30px;
+            background: rgba(0,0,0,0.85);
+            border-bottom: 1px solid rgba(212,175,55,0.35);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.9rem;
+            color: #d4af37;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            padding: 30px;
+        }
+
+        .tile {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 18px;
+            padding: 35px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.25s ease;
+            backdrop-filter: blur(6px);
+        }
+
+        .tile:hover {
+            background: rgba(255,255,255,0.18);
+            transform: translateY(-4px);
+        }
+
+        .tile-icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+
+        .tile-label {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 700px) {
+            .admin-grid {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 20px;
+            }
+
+            .tile {
+                padding: 40px 15px;
+            }
+
+            .tile-icon {
+                font-size: 3.2rem;
+            }
+
+            .tile-label {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Admin Dashboard</h1>
+    <button onclick="logout()" style="background:#b30000;color:#fff;padding:10px 20px;border:none;border-radius:8px;font-weight:600;cursor:pointer;">
+        Logout
+    </button>
+</header>
+
+<section class="admin-grid">
+
+    <div class="tile" onclick="location.href='bookings.html'">
+        <div class="tile-icon">📅</div>
+        <div class="tile-label">Bookings</div>
+    </div>
+
+    <div class="tile" onclick="location.href='payouts.html'">
+        <div class="tile-icon">💸</div>
+        <div class="tile-label">Payouts</div>
+    </div>
+
+    <div class="tile" onclick="location.href='availability.html'">
+        <div class="tile-icon">🕒</div>
+        <div class="tile-label">Availability</div>
+    </div>
+
+    <div class="tile" onclick="location.href='network-profiles.html'">
+        <div class="tile-icon">🧑‍🤝‍🧑</div>
+        <div class="tile-label">Network Profiles</div>
+    </div>
+
+    <div class="tile" onclick="location.href='network-products.html'">
+        <div class="tile-icon">📦</div>
+        <div class="tile-label">Network Products</div>
+    </div>
+
+    <div class="tile" onclick="location.href='network-analytics.html'">
+        <div class="tile-icon">📊</div>
+        <div class="tile-label">Analytics</div>
+    </div>
+
+</section>
+
+<script src="../assets/js/admin.js"></script>
+
+<script>
+function logout() {
+    localStorage.removeItem("adminToken");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

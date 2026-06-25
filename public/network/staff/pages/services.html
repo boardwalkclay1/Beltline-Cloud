@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Services — Staff</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="/network/public/img/network-logo.jpg">
+
+    <!-- Social Preview -->
+    <meta property="og:title" content="Staff Services — The Network">
+    <meta property="og:description" content="Manage your service offerings on The Network.">
+    <meta property="og:image" content="/network/public/img/network-logo.jpg">
+
+    <!-- Global Lightning Theme -->
+    <link rel="stylesheet" href="/network/public/css/style.css">
+</head>
+
+<body>
+
+    <!-- Lightning Overlay -->
+    <div class="lightning-overlay"></div>
+
+    <!-- Header -->
+    <header class="network-header">
+        <img src="/network/public/img/network-logo.jpg" class="network-logo" alt="Logo">
+        <h1 class="network-title">Manage Your Services</h1>
+        <p class="network-subtitle">Add, edit, and organize your service offerings.</p>
+    </header>
+
+    <!-- Main Panel -->
+    <section class="network-panels">
+        <div class="panel" style="display:block;">
+
+            <h2>➕ Add a New Service</h2>
+
+            <label>Service Name</label>
+            <input id="service-name" type="text" placeholder="Example: Haircut, Key Duplication, Fitness Session">
+
+            <label>Price</label>
+            <input id="service-price" type="number" placeholder="25">
+
+            <label>Duration</label>
+            <input id="service-duration" type="text" placeholder="30 min, 1 hr, etc.">
+
+            <label>Description</label>
+            <textarea id="service-description" placeholder="Describe what the service includes..."></textarea>
+
+            <button class="panel-link" onclick="Staff.addService()">Add Service</button>
+
+        </div>
+
+        <div class="panel" style="display:block; margin-top:40px;">
+            <h2>🧰 Your Services</h2>
+            <div id="service-list"></div>
+        </div>
+    </section>
+
+    <script src="/network/staff/js/staff.js"></script>
+    <script>
+        Staff.loadServices();
+    </script>
+
+</body>
+</html>

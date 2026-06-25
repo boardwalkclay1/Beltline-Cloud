@@ -1,0 +1,218 @@
+/* --------------------------------------------------
+   ROOT COLORS — BLUE / GOLD / YELLOW NETWORK THEME
+-------------------------------------------------- */
+:root {
+  --blue: #4fb9ff;
+  --blue-glow: rgba(79,185,255,0.8);
+  --gold: #ffcc33;
+  --gold-glow: rgba(255,204,51,0.8);
+  --yellow: #ffee55;
+  --dark: #0a0c10;
+  --panel-bg: rgba(0,0,0,0.55);
+  --panel-border: rgba(255,204,51,0.4);
+  --text: #e8f6ff;
+  --radius: 18px;
+  --transition: 0.25s ease;
+}
+
+/* --------------------------------------------------
+   GLOBAL
+-------------------------------------------------- */
+body {
+  margin: 0;
+  padding: 0;
+  background: url('/network/public/img/network-back.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Crimson Pro', serif;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------
+   LIGHTNING OVERLAY
+-------------------------------------------------- */
+.lightning-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255,255,0,0.25) 0%, transparent 70%);
+  opacity: 0;
+  animation: lightningFlash 6s infinite;
+}
+
+@keyframes lightningFlash {
+  0%, 93%, 100% { opacity: 0; }
+  94% { opacity: 0.9; }
+  95% { opacity: 0.2; }
+  96% { opacity: 0.8; }
+}
+
+/* --------------------------------------------------
+   HEADER
+-------------------------------------------------- */
+.network-header {
+  text-align: center;
+  padding: 70px 20px 40px;
+  background: rgba(0,0,0,0.55);
+  border-bottom: 2px solid var(--gold);
+  box-shadow: 0 0 25px var(--blue-glow);
+  position: relative;
+}
+
+.network-logo {
+  width: 150px;
+  filter: drop-shadow(0 0 15px var(--blue-glow));
+  margin-bottom: 10px;
+}
+
+.network-title {
+  font-family: 'Cinzel', serif;
+  font-size: 3.2rem;
+  color: var(--gold);
+  text-shadow: 0 0 12px var(--blue-glow);
+  margin: 0;
+}
+
+.network-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.95;
+}
+
+/* --------------------------------------------------
+   HEADER BUTTONS
+-------------------------------------------------- */
+.header-btn {
+  position: absolute;
+  top: 20px;
+  padding: 12px 22px;
+  background: rgba(0,0,0,0.6);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 18px;
+  transition: var(--transition);
+}
+
+.header-btn:hover {
+  background: var(--gold);
+  color: black;
+  box-shadow: 0 0 20px var(--blue-glow);
+}
+
+.left-btn { left: 20px; }
+.right-btn { right: 20px; }
+
+/* --------------------------------------------------
+   NODE NAVIGATION — ELECTRIC WEB
+-------------------------------------------------- */
+.network-nodes {
+  width: 92%;
+  max-width: 1100px;
+  margin: 40px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  position: relative;
+}
+
+.node {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.55);
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 20px var(--blue-glow), inset 0 0 15px rgba(255,255,255,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition);
+  backdrop-filter: blur(6px);
+  position: relative;
+}
+
+.node:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px var(--blue-glow), inset 0 0 20px var(--gold-glow);
+}
+
+.node-icon {
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+}
+
+.node-label {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* --------------------------------------------------
+   PANELS — SLIDE OPEN
+-------------------------------------------------- */
+.network-panels {
+  width: 92%;
+  max-width: 900px;
+  margin: 20px auto 60px;
+}
+
+.panel {
+  display: none;
+  background: var(--panel-bg);
+  border: 2px solid var(--panel-border);
+  border-radius: var(--radius);
+  padding: 25px;
+  margin-top: 20px;
+  box-shadow: 0 0 20px var(--blue-glow);
+  animation: panelFade 0.4s ease forwards;
+}
+
+@keyframes panelFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panel h2 {
+  margin-top: 0;
+  color: var(--gold);
+  text-shadow: 0 0 10px var(--blue-glow);
+}
+
+.panel-link {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: rgba(0,0,0,0.6);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  color: var(--gold);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.panel-link:hover {
+  background: var(--gold);
+  color: black;
+  box-shadow: 0 0 20px var(--blue-glow);
+}
+
+/* --------------------------------------------------
+   MOBILE
+-------------------------------------------------- */
+@media (max-width: 600px) {
+  .node {
+    width: 130px;
+    height: 130px;
+  }
+
+  .node-icon {
+    font-size: 2rem;
+  }
+
+  .network-title {
+    font-size: 2.4rem;
+  }
+}

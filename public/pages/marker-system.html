@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Beltline Emergency Marker System</title>
+
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .logo {
+            width: 160px;
+            height: 60px;
+            background-image: url('../assets/img/bbi-logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: left center;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 90px;
+            left: 20px;
+            background: rgba(0,0,0,0.92);
+            padding: 25px;
+            border-radius: 14px;
+            border: 1px solid var(--ember-soft);
+            z-index: 999;
+        }
+        .mobile-menu a {
+            display: block;
+            margin: 14px 0;
+            color: var(--yellow);
+            font-family: 'Cinzel', serif;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .dropdown-btn {
+            width: 100%;
+            padding: 14px 20px;
+            background: rgba(255,155,40,0.15);
+            border: 1px solid var(--ember-soft);
+            border-radius: 12px;
+            color: var(--yellow);
+            font-family: 'Cinzel', serif;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            padding: 20px;
+            background: rgba(0,0,0,0.55);
+            border: 1px solid var(--ember-soft);
+            border-radius: 12px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav">
+        <div class="logo" onclick="toggleMenu()"></div>
+
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="../index.html">Home</a>
+            <a href="map.html">Map</a>
+            <a href="community.html">Community</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <section class="page-content">
+        <h1>Beltline Emergency Marker System</h1>
+        <p>How to identify your exact location on the Atlanta Beltline during emergencies.</p>
+
+        <div class="card">
+            <h2>How the Marker System Works</h2>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDrop(1)">Pole Stickers</button>
+                <div class="dropdown-content" id="drop1">
+                    <p>Every light pole on paved Beltline trails has a unique ID sticker.</p>
+                    <p>When you call 911, read the number to dispatch.</p>
+                    <p>They instantly see your exact coordinates.</p>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDrop(2)">Interim Trail Markers</button>
+                <div class="dropdown-content" id="drop2">
+                    <p>Unpaved trails use standalone markers every 0.10 miles.</p>
+                    <p>These also identify your location for emergency response.</p>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDrop(3)">APD Path Force</button>
+                <div class="dropdown-content" id="drop3">
+                    <p>APD Path Force uses these markers to reach you quickly.</p>
+                    <p>They have direct access to the Beltline’s GIS system.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Emergency Numbers</h2>
+            <p><strong>911</strong> — Emergencies</p>
+            <p><strong>APD Path Force:</strong> 404‑546‑PATH</p>
+            <p><strong>Atlanta Police Zone 6:</strong> 404‑371‑5002</p>
+            <p><strong>Grady Hospital ER:</strong> 404‑616‑1000</p>
+            <p><strong>Piedmont Hospital:</strong> 404‑605‑5000</p>
+            <p><strong>Georgia Crisis Line:</strong> 1‑800‑715‑4225</p>
+            <p><strong>ATL311 (maintenance):</strong> 404‑546‑0311</p>
+        </div>
+
+    </section>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function toggleDrop(n) {
+            const box = document.getElementById("drop" + n);
+            box.style.display = box.style.display === "block" ? "none" : "block";
+        }
+    </script>
+
+</body>
+</html>

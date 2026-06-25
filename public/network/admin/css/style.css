@@ -1,0 +1,109 @@
+:root {
+  --bg: #020305;
+  --panel: #10131a;
+  --panel-soft: #181c24;
+  --accent: #ff9933;
+  --accent-soft: rgba(255,153,51,0.4);
+  --danger: #ff4b4b;
+  --text: #fdf7e8;
+  --muted: #9fa4b5;
+  --radius: 14px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Crimson Pro', serif;
+}
+
+.sunny-header {
+  padding: 26px 24px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.sunny-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2.4rem;
+  margin-bottom: 6px;
+}
+
+.sunny-header p {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* Tabs */
+.admin-tabs {
+  display: flex;
+  gap: 10px;
+  padding: 14px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.admin-tabs button {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.admin-tabs button.active {
+  border-color: var(--accent);
+  background: var(--panel-soft);
+  box-shadow: 0 0 12px var(--accent-soft);
+}
+
+.admin-tabs button:hover {
+  border-color: var(--accent);
+}
+
+/* Tab content */
+.tab {
+  padding: 24px;
+}
+
+/* Cards */
+.card {
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.card h2, .card h3 {
+  margin: 0 0 8px;
+}
+
+.card p {
+  margin: 2px 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Buttons */
+.btn {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: var(--panel-soft);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-right: 6px;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  border-color: var(--accent);
+}
+
+.btn-danger {
+  border-color: var(--danger);
+  color: var(--danger);
+}

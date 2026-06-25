@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Legal Agreement — The Network Staff</title>
+
+    <link rel="icon" type="image/jpeg" href="/network/public/img/network-logo.jpg">
+    <link rel="stylesheet" href="/network/public/css/style.css">
+
+    <meta property="og:title" content="Legal Agreement — The Network Staff">
+    <meta property="og:description" content="Agree to the terms to activate your staff account.">
+    <meta property="og:image" content="/network/public/img/network-logo.jpg">
+</head>
+
+<body>
+
+<div class="lightning-overlay"></div>
+
+<header class="network-header">
+    <img src="/network/public/img/network-logo.jpg" class="network-logo">
+    <h1 class="network-title">Legal Agreement</h1>
+    <p class="network-subtitle">You must accept to continue.</p>
+</header>
+
+<section class="network-panels">
+    <div class="panel" style="display:block;">
+
+        <h2>Staff Agreement</h2>
+
+        <p>
+            By using The Network, you agree that you operate as an independent vendor or service provider.
+            The Network and Boardwalk Beltline are not responsible for injuries, damages, disputes, or outcomes
+            related to your services, products, workshops, or interactions.
+        </p>
+
+        <p>
+            You agree to follow all local laws and use The Network responsibly.
+        </p>
+
+        <label>
+            <input id="legal-accept" type="checkbox">
+            <span>I agree to the terms above.</span>
+        </label>
+
+        <button class="panel-link" onclick="Auth.handleLegal()">Accept & Continue</button>
+
+    </div>
+</section>
+
+<script src="/network/public/js/auth.js"></script>
+</body>
+</html>

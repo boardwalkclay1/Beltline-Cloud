@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Beltline Feed — Boardwalk Beltline</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+
+    <!-- SOCIAL PREVIEW -->
+    <meta property="og:title" content="Beltline Lifestyle Feed — Boardwalk Beltline">
+    <meta property="og:description" content="Clips, culture, art, food, safety, and the heartbeat of Atlanta’s Beltline.">
+    <meta property="og:image" content="../assets/img/bb-train.png">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Beltline Lifestyle Feed — Boardwalk Beltline">
+    <meta name="twitter:description" content="Explore the movement, music, and motion of the Atlanta Beltline.">
+    <meta name="twitter:image" content="../assets/img/bb-train.png">
+
+    <!-- MASTER CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- PAGE-SPECIFIC CSS -->
+    <style>
+        /* LOGO BURGER MENU */
+        .logo {
+            width: 160px;
+            height: 60px;
+            background-image: url('../assets/img/bbi-logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: left center;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 90px;
+            left: 20px;
+            background: rgba(0,0,0,0.92);
+            padding: 25px;
+            border-radius: 14px;
+            border: 1px solid var(--ember-soft);
+            z-index: 999;
+        }
+        .mobile-menu a {
+            display: block;
+            margin: 14px 0;
+            color: var(--yellow);
+            font-family: 'Cinzel', serif;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+        }
+
+        .feed-section {
+            margin-bottom: 50px;
+        }
+        .feed-section h2 {
+            margin-bottom: 10px;
+        }
+        .feed-card {
+            background: rgba(0,0,0,0.65);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid var(--ember-soft);
+            margin: 20px auto;
+            max-width: 700px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LOADING SCREEN -->
+    <div id="loading-screen">
+        <div class="loading-icon"></div>
+        <div class="loading-bar">
+            <div class="loading-bar-fill"></div>
+        </div>
+    </div>
+
+    <!-- BACKGROUND -->
+    <div class="page-bg" style="background-image: url('../assets/img/bb-train.png');"></div>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="logo" onclick="toggleMenu()"></div>
+
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="workshops.html">Workshops</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="beltline.html">Beltline Feed</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="marker-system.html">Marker System</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="workshops.html">Workshops</a>
+            <a href="shop.html">Shop</a>
+            <a href="beltline.html">Beltline Feed</a>
+            <a href="map.html">Map</a>
+            <a href="marker-system.html">Marker System</a>
+            <a href="community.html">Community</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <section class="page-content">
+        <h1>Beltline Lifestyle Feed</h1>
+        <p>The movement, music, motion, and heartbeat of Atlanta.</p>
+
+        <!-- CLIPS -->
+        <div class="feed-section">
+            <h2>🎥 Daily Clips</h2>
+            <div class="feed-card">
+                <p>Coming soon — cinematic clips from Boardwalk Clay’s rides, sessions, and Beltline moments.</p>
+            </div>
+        </div>
+
+        <!-- FOOD -->
+        <div class="feed-section">
+            <h2>🍔 Food & Local Spots</h2>
+            <div class="feed-card">
+                <p>Reviews, hidden gems, and Beltline favorites — from Krog Street to Ponce City Market.</p>
+            </div>
+        </div>
+
+        <!-- ART -->
+        <div class="feed-section">
+            <h2>🎨 Art & Culture</h2>
+            <div class="feed-card">
+                <p>Murals, artists, creators, and the culture that makes the Beltline alive.</p>
+            </div>
+        </div>
+
+        <!-- SAFETY -->
+        <div class="feed-section">
+            <h2>⚠️ Safety Updates</h2>
+            <div class="feed-card">
+                <p>Real-time safety notes, crowd levels, night riding tips, and community alerts.</p>
+            </div>
+        </div>
+
+        <!-- COMMUNITY -->
+        <div class="feed-section">
+            <h2>❤️ Community Stories</h2>
+            <div class="feed-card">
+                <p>People of the Beltline — skaters, cyclists, walkers, families, and creators.</p>
+            </div>
+        </div>
+
+        <!-- MEDIA STATION -->
+        <div class="feed-section">
+            <h2>📡 Beltline Media Station</h2>
+            <div class="feed-card">
+                <p>Boardwalk Beltline’s upcoming media hub — interviews, features, and live updates.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loading-screen");
+            setTimeout(() => loader.classList.add("hidden"), 300);
+        });
+    </script>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

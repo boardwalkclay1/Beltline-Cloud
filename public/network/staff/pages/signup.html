@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Staff Sign Up — The Network</title>
+
+    <link rel="icon" type="image/jpeg" href="/network/public/img/network-logo.jpg">
+    <link rel="stylesheet" href="/network/public/css/style.css">
+
+    <meta property="og:title" content="Staff Sign Up — The Network">
+    <meta property="og:description" content="Create your vendor, service, or workshop account on The Network.">
+    <meta property="og:image" content="/network/public/img/network-logo.jpg">
+</head>
+
+<body>
+
+<div class="lightning-overlay"></div>
+
+<header class="network-header">
+    <img src="/network/public/img/network-logo.jpg" class="network-logo">
+    <h1 class="network-title">Join The Network Staff</h1>
+    <p class="network-subtitle">Create your vendor, service, or workshop account.</p>
+</header>
+
+<section class="network-panels">
+    <div class="panel" style="display:block;">
+
+        <h2>Sign Up</h2>
+
+        <label>Name</label>
+        <input id="su-name" type="text">
+
+        <label>Email</label>
+        <input id="su-email" type="email">
+
+        <label>Password</label>
+        <input id="su-password" type="password">
+
+        <label>Vendor Type</label>
+        <select id="su-type">
+            <option value="product">Product Vendor</option>
+            <option value="service">Service Provider</option>
+            <option value="workshop">Workshop Host</option>
+            <option value="hybrid">Hybrid (Multiple)</option>
+        </select>
+
+        <label>Tags (haircuts, keys, jewelry, art, etc.)</label>
+        <input id="su-tags" type="text">
+
+        <label>PayPal Email (for payouts)</label>
+        <input id="su-paypal" type="email">
+
+        <label>Active on The Network?</label>
+        <input id="su-active" type="checkbox" checked> <span>Show my profile</span>
+
+        <label>Profile Photo</label>
+        <input id="su-photo" type="file" accept="image/*">
+
+        <button class="panel-link" onclick="Auth.handleSignup()">Create Account</button>
+
+    </div>
+</section>
+
+<script src="/network/public/js/auth.js"></script>
+</body>
+</html>

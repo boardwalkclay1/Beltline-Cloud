@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Network — Boardwalk Beltline</title>
+
+    <link rel="icon" type="image/jpeg" href="../img/network-logo.jpg">
+
+    <meta property="og:title" content="The Network — Boardwalk Beltline">
+    <meta property="og:description" content="The Beltline’s official network of creators, vendors, workshops, and services.">
+    <meta property="og:image" content="../img/network-logo.jpg">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .network-nodes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            padding: 25px;
+        }
+
+        .node {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 18px;
+            padding: 28px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.25s ease;
+            backdrop-filter: blur(6px);
+        }
+
+        .node:hover {
+            background: rgba(255,255,255,0.18);
+            transform: translateY(-4px);
+        }
+
+        .node-icon {
+            font-size: 2.8rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .node-label {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .network-nodes {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .node {
+                padding: 32px 12px;
+            }
+
+            .node-icon {
+                font-size: 3rem;
+            }
+
+            .node-label {
+                font-size: 1.35rem;
+            }
+        }
+
+        .panel {
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="lightning-overlay"></div>
+
+    <header class="network-header">
+        <a href="signup.html" class="header-btn left-btn">Sign Up</a>
+        <a href="login.html" class="header-btn right-btn">Login</a>
+
+        <img src="../img/network-logo.jpg" class="network-logo" alt="The Network Logo">
+        <h1 class="network-title">The Network</h1>
+        <p class="network-subtitle">The Beltline’s official hub of creators, vendors, workshops, and services.</p>
+    </header>
+
+    <section class="network-nodes">
+
+        <div class="node" data-target="about">
+            <span class="node-icon">🌐</span>
+            <span class="node-label">About</span>
+        </div>
+
+        <div class="node" data-target="vendors">
+            <span class="node-icon">🛍️</span>
+            <span class="node-label">Vendors</span>
+        </div>
+
+        <div class="node" data-target="services">
+            <span class="node-icon">🧰</span>
+            <span class="node-label">Services</span>
+        </div>
+
+        <div class="node" data-target="products">
+            <span class="node-icon">📦</span>
+            <span class="node-label">Products</span>
+        </div>
+
+        <div class="node" data-target="explore">
+            <span class="node-icon">🧭</span>
+            <span class="node-label">Explore</span>
+        </div>
+
+        <!-- ⭐ MAP NODE (emoji + working link) -->
+        <div class="node" onclick="window.location.href='../map.html'">
+            <span class="node-icon">🗺️</span>
+            <span class="node-label">Map</span>
+        </div>
+
+        <div class="node" data-target="delivery">
+            <span class="node-icon">🚚</span>
+            <span class="node-label">Fast Roll</span>
+        </div>
+
+        <div class="node" data-target="profile">
+            <span class="node-icon">👤</span>
+            <span class="node-label">My Profile</span>
+        </div>
+
+        <div class="node" data-target="settings">
+            <span class="node-icon">⚙️</span>
+            <span class="node-label">Settings</span>
+        </div>
+
+        <div class="node" data-target="apply">
+            <span class="node-icon">📝</span>
+            <span class="node-label">Become a Vendor</span>
+        </div>
+
+    </section>
+
+    <section class="network-panels">
+
+        <div id="about" class="panel">
+            <h2>🌐 What Is The Network?</h2>
+            <p>The Network is the Beltline’s official digital ecosystem — a unified hub where every local business, creator, vendor, and workshop can be discovered in one place.</p>
+        </div>
+
+        <div id="vendors" class="panel">
+            <h2>🛍️ Vendors</h2>
+            <p>Scroll through active Beltline vendors.</p>
+            <div class="scroll-feed" id="vendors-feed"></div>
+            <a href="vendors.html" class="panel-link">View All Vendors</a>
+        </div>
+
+        <div id="services" class="panel">
+            <h2>🧰 Services</h2>
+            <p>Featuring Fast Roll Delivery first.</p>
+            <div class="scroll-feed" id="services-feed"></div>
+            <a href="services.html" class="panel-link">View All Services</a>
+        </div>
+
+        <div id="products" class="panel">
+            <h2>📦 Products</h2>
+            <p>Browse trending items from Beltline vendors.</p>
+            <div class="scroll-feed" id="products-feed"></div>
+            <a href="vendors.html" class="panel-link">Shop All Products</a>
+        </div>
+
+        <div id="explore" class="panel">
+            <h2>🧭 Explore</h2>
+            <a href="explore.html" class="panel-link">Explore Now</a>
+        </div>
+
+        <div id="delivery" class="panel">
+            <h2>🚚 Fast Roll Delivery</h2>
+            <p>Get anything delivered on the Beltline.</p>
+            <a href="delivery.html" class="panel-link">Request Delivery</a>
+        </div>
+
+        <div id="profile" class="panel">
+            <h2>👤 My Profile</h2>
+            <a href="profile.html" class="panel-link">My Profile</a>
+        </div>
+
+        <div id="settings" class="panel">
+            <h2>⚙️ Settings</h2>
+            <a href="settings.html" class="panel-link">Payment Method</a>
+        </div>
+
+        <div id="apply" class="panel">
+            <h2>📝 Become a Vendor</h2>
+            <p>Apply to join The Network as a vendor, service provider, or workshop host.</p>
+            <a href="apply.html" class="panel-link">Start Application</a>
+        </div>
+
+    </section>
+
+    <!-- ⭐ DO NOT CHANGE THIS PATH -->
+    <script src="../js/network.js"></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+/* =========================================
+   BOARDWALK BELTLINE — DRACULA MEDIEVAL THEME
+   Dark Navy • Black • Molten Orange • Ember Yellow
+   Gothic • Cinematic • Clean Glow
+   ========================================= */
+
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:wght@300;400;600&display=swap');
+
+:root {
+    --navy: #05070d;
+    --navy-deep: #020309;
+    --ember: #ff9b28;
+    --ember-soft: rgba(255,155,40,0.35);
+    --ember-deep: #d87a12;
+    --yellow: #ffe08a;
+    --red: #8b0000;
+    --black: #000;
+    --white: #fff;
+
+    --radius: 16px;
+    --transition: 0.3s ease;
+}
+
+/* GLOBAL */
+body {
+    margin: 0;
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Crimson Pro', serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* TEXT GLOW — stronger but clean */
+h1, h2, h3 {
+    text-shadow:
+        0 0 8px rgba(255,255,255,0.45),
+        0 0 14px rgba(255,255,255,0.25);
+}
+
+p, a, li, span {
+    text-shadow:
+        0 0 6px rgba(255,255,255,0.35);
+}
+
+/* LOCKED BACKGROUND */
+.page-bg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    filter: brightness(0.38);
+}
+
+@supports (-webkit-touch-callout: none) {
+    .page-bg {
+        background-attachment: scroll;
+    }
+}
+
+/* NAV */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--ember-soft);
+    z-index: 20;
+}
+
+/* LOGO IMAGE (REPLACES TEXT) */
+.logo {
+    width: 160px;
+    height: 60px;
+    background-image: url('../assets/img/bbi-logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+/* NAV LINKS */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: var(--yellow);
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+    transition: var(--transition);
+    text-shadow: 0 0 6px rgba(255,255,255,0.35);
+}
+
+.nav-links a:hover {
+    color: var(--ember);
+    text-shadow:
+        0 0 10px rgba(255,155,40,0.55),
+        0 0 18px rgba(255,155,40,0.35);
+}
+
+/* HERO */
+.hero {
+    height: 88vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+.hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 4rem;
+    color: var(--yellow);
+    text-shadow:
+        0 0 12px rgba(255,200,80,0.55),
+        0 0 22px rgba(255,200,80,0.35);
+}
+
+.hero p {
+    font-size: 1.4rem;
+    opacity: 0.9;
+}
+
+/* BUTTONS */
+.btn, .cta {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 999px;
+    background: var(--ember);
+    color: var(--black);
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition);
+    margin-top: 20px;
+    font-family: 'Cinzel', serif;
+    text-shadow: none;
+}
+
+.btn:hover, .cta:hover {
+    background: var(--red);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 0 14px rgba(255,155,40,0.45);
+}
+
+/* SECTIONS */
+.section {
+    padding: 90px 40px;
+    text-align: center;
+}
+
+.section h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--yellow);
+    font-size: 2.6rem;
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.45),
+        0 0 18px rgba(255,255,255,0.25);
+}
+
+.section.alt {
+    background: rgba(0,0,0,0.55);
+}
+
+/* PAGE CONTENT */
+.page-content {
+    padding: 140px 40px;
+    text-align: center;
+}
+
+/* CARDS */
+.card {
+    background: rgba(0,0,0,0.65);
+    padding: 32px;
+    margin: 40px auto;
+    max-width: 650px;
+    border-radius: var(--radius);
+    border: 1px solid var(--ember-soft);
+    backdrop-filter: blur(6px);
+}
+
+.card h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--yellow);
+    margin-bottom: 12px;
+}
+
+/* PRODUCT IMAGE */
+.product-img {
+    width: 100%;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    border: 1px solid var(--ember-soft);
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 50px;
+    background: rgba(0,0,0,0.85);
+    color: var(--ember);
+    margin-top: 100px;
+    border-top: 1px solid var(--ember-soft);
+    font-family: 'Cinzel', serif;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* LOADING SCREEN */
+#loading-screen {
+    position: fixed;
+    inset: 0;
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.6s ease;
+}
+
+#loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-icon {
+    width: 90px;
+    height: 90px;
+    background-image: url('../assets/img/bbi-logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 0 14px var(--yellow));
+}
+
+.loading-bar {
+    width: 260px;
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    overflow: hidden;
+    border: 1px solid var(--ember-soft);
+}
+
+.loading-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--ember);
+    border-radius: 999px;
+    animation: loadingFill 2.2s ease forwards;
+}
+
+@keyframes loadingFill {
+    from { width: 0%; }
+    to   { width: 100%; }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.6rem; }
+    .hero p { font-size: 1.1rem; }
+    .nav { padding: 18px 20px; }
+    .nav-links { gap: 18px; }
+    .section { padding: 70px 20px; }
+    .page-content { padding: 120px 20px; }
+}

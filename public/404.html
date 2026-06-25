@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>404 — Boardwalk Beltline</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+    <!-- SOCIAL PREVIEW -->
+    <meta property="og:title" content="404 — Boardwalk Beltline">
+    <meta property="og:description" content="This page rolled off the Beltline. Explore the movement, music, and motion of Boardwalk Clay.">
+    <meta property="og:image" content="assets/img/bb-board.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boardwalkbeltline.com/404.html">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="404 — Boardwalk Beltline">
+    <meta name="twitter:description" content="This page rolled off the Beltline. Head back to the flow.">
+    <meta name="twitter:image" content="assets/img/bb-board.png">
+
+    <!-- INLINE 404 CSS -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        /* BACKGROUND */
+        .page-bg {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/img/bb-board.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.35);
+            z-index: -1;
+        }
+
+        /* NAV */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 40px;
+            background: rgba(0,0,0,0.85);
+            color: #d4af37;
+            border-bottom: 1px solid rgba(212,175,55,0.35);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #b30000;
+        }
+
+        /* CONTENT */
+        .content {
+            text-align: center;
+            margin-top: 18vh;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 5rem;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 999px;
+            background: #d4af37;
+            color: #000;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #b30000;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-bg"></div>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="logo">BOARDWALK BELTLINE</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pages/about.html">About</a></li>
+            <li><a href="pages/workshops.html">Workshops</a></li>
+            <li><a href="pages/shop.html">Shop</a></li>
+            <li><a href="pages/beltline.html">Beltline Feed</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- 404 CONTENT -->
+    <div class="content">
+        <h1>404</h1>
+        <p>This page rolled off the Beltline.</p>
+        <a class="btn" href="index.html">Back to Home</a>
+    </div>
+
+</body>
+</html>

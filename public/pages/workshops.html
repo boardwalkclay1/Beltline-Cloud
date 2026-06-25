@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Workshops — Boardwalk Beltline</title>
+
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <meta property="og:title" content="Boardwalk Beltline Workshops">
+    <meta property="og:description" content="Longboard, inline, roller skating, and skateboard workshops on the Atlanta Beltline.">
+    <meta property="og:image" content="../assets/img/bb-board.png">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Boardwalk Beltline Workshops">
+    <meta name="twitter:description" content="Flow, skating, and freestyle expression with Boardwalk Clay.">
+    <meta name="twitter:image" content="../assets/img/bb-board.png">
+
+    <style>
+        .logo {
+            width: 160px;
+            height: 60px;
+            background-image: url('../assets/img/bbi-logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: left center;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 90px;
+            left: 20px;
+            background: rgba(0,0,0,0.92);
+            padding: 25px;
+            border-radius: 14px;
+            border: 1px solid var(--ember-soft);
+            z-index: 999;
+        }
+        .mobile-menu a {
+            display: block;
+            margin: 14px 0;
+            color: var(--yellow);
+            font-family: 'Cinzel', serif;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+        }
+
+        .workshop-card {
+            margin-bottom: 40px;
+        }
+
+        .price-tag {
+            font-size: 1.3rem;
+            color: var(--yellow);
+            margin-top: 10px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .form-container {
+            background: rgba(0,0,0,0.65);
+            padding: 32px;
+            margin: 40px auto;
+            max-width: 700px;
+            border-radius: var(--radius);
+            border: 1px solid var(--ember-soft);
+            backdrop-filter: blur(6px);
+        }
+
+        .form-container input,
+        .form-container select,
+        .form-container textarea {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0 20px 0;
+            border-radius: 10px;
+            border: 1px solid var(--ember-soft);
+            background: rgba(255,255,255,0.08);
+            color: var(--yellow);
+            font-family: 'Crimson Pro', serif;
+        }
+
+        .form-container label {
+            font-family: 'Cinzel', serif;
+            color: var(--yellow);
+            font-size: 1.1rem;
+        }
+
+        .status-msg {
+            margin-top: 15px;
+            font-family: 'Cinzel', serif;
+            color: var(--yellow);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="loading-screen">
+        <div class="loading-icon"></div>
+        <div class="loading-bar"><div class="loading-bar-fill"></div></div>
+    </div>
+
+    <div class="page-bg" style="background-image: url('../assets/img/bb-board.png');"></div>
+
+    <nav class="nav">
+        <div class="logo" onclick="toggleMenu()"></div>
+
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="beltline.html">Beltline Feed</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="marker-system.html">Marker System</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="shop.html">Shop</a>
+            <a href="beltline.html">Beltline Feed</a>
+            <a href="map.html">Map</a>
+            <a href="marker-system.html">Marker System</a>
+            <a href="community.html">Community</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <section class="page-content">
+        <h1>Workshops</h1>
+        <p>Longboard, inline, roller skating, and skateboard training on the Atlanta Beltline.</p>
+
+        <div class="card workshop-card">
+            <h2>Longboard Workshops</h2>
+            <p>Flow, footwork, balance, and Beltline expression.</p>
+            <p class="price-tag">$80 per workshop</p>
+        </div>
+
+        <div class="card workshop-card">
+            <h2>Inline Skating Workshops</h2>
+            <p>Speed, control, stride, and Beltline‑safe skating.</p>
+            <p class="price-tag">$80 per workshop</p>
+        </div>
+
+        <div class="card workshop-card">
+            <h2>Roller Skating Workshops</h2>
+            <p>Dance skating, rhythm skating, and flow movement.</p>
+            <p class="price-tag">$80 per workshop</p>
+        </div>
+
+        <div class="card workshop-card">
+            <h2>Skateboard Workshops</h2>
+            <p>Basics, tricks, balance, and Beltline‑ready riding.</p>
+            <p class="price-tag">$80 per workshop</p>
+        </div>
+
+        <div class="card workshop-card">
+            <h2>1‑on‑1 With Boardwalk Clay</h2>
+            <p>Private session. Any discipline. Full focus. Beltline‑based.</p>
+            <p class="price-tag">$200 per hour</p>
+        </div>
+
+        <div class="form-container">
+            <h2>Reserve Your Spot</h2>
+
+            <form id="reserveForm">
+                <label>Name</label>
+                <input type="text" name="name" required>
+
+                <label>Email</label>
+                <input type="email" name="email" required>
+
+                <label>Discipline</label>
+                <select name="discipline" required>
+                    <option>Longboard</option>
+                    <option>Inline Skating</option>
+                    <option>Roller Skating</option>
+                    <option>Skateboard</option>
+                </select>
+
+                <label>Instructor</label>
+                <select name="instructor" required>
+                    <option value="team">Team Instructor — $80</option>
+                    <option value="clay">Boardwalk Clay — $200/hr</option>
+                </select>
+
+                <label>Date</label>
+                <input type="date" name="date" required>
+
+                <label>Time</label>
+                <input type="time" name="time" required>
+
+                <label>Notes (optional)</label>
+                <textarea name="notes" rows="4"></textarea>
+
+                <button class="btn" type="submit">Reserve Spot</button>
+                <div id="status" class="status-msg"></div>
+            </form>
+        </div>
+
+    </section>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loading-screen");
+            setTimeout(() => loader.classList.add("hidden"), 300);
+        });
+
+        const form = document.getElementById('reserveForm');
+        const statusEl = document.getElementById('status');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            statusEl.textContent = "Creating booking...";
+            const formData = new FormData(form);
+            const payload = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                discipline: formData.get('discipline'),
+                instructor: formData.get('instructor'),
+                date: formData.get('date'),
+                time: formData.get('time'),
+                notes: formData.get('notes')
+            };
+
+            try {
+                const res = await fetch('/api/book', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                if (data.checkoutUrl) {
+                    statusEl.textContent = "Redirecting to payment...";
+                    window.location = data.checkoutUrl;
+                } else {
+                    statusEl.textContent = "Error starting payment.";
+                }
+            } catch (err) {
+                statusEl.textContent = "Error connecting to server.";
+            }
+        });
+
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('status') === 'success') {
+            statusEl.textContent = "Payment successful. Your spot is reserved.";
+        } else if (params.get('status') === 'cancel') {
+            statusEl.textContent = "Payment canceled. You can try again.";
+        }
+    </script>
+
+</body>
+</html>

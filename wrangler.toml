@@ -1,0 +1,10 @@
+name = "boardwalk-network"
+main = "worker.js"
+compatibility_date = "2024-06-01"
+
+pages_build_output_dir = "public"
+
+[[d1_databases]]
+binding = "DB_network"
+database_name = "network"
+database_id = "813a24be-1b72-426d-ab4a-5de6b6c076e7"

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Workshops — Staff</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="/network/public/img/network-logo.jpg">
+
+    <!-- Social Preview -->
+    <meta property="og:title" content="Staff Workshops — The Network">
+    <meta property="og:description" content="Manage your workshops, sessions, and class offerings on The Network.">
+    <meta property="og:image" content="/network/public/img/network-logo.jpg">
+
+    <!-- Global Lightning Theme -->
+    <link rel="stylesheet" href="/network/public/css/style.css">
+</head>
+
+<body>
+
+    <!-- Lightning Overlay -->
+    <div class="lightning-overlay"></div>
+
+    <!-- Header -->
+    <header class="network-header">
+        <img src="/network/public/img/network-logo.jpg" class="network-logo" alt="Logo">
+        <h1 class="network-title">Manage Your Workshops</h1>
+        <p class="network-subtitle">Create, schedule, and organize your classes.</p>
+    </header>
+
+    <!-- Main Panels -->
+    <section class="network-panels">
+
+        <!-- Add Workshop Panel -->
+        <div class="panel" style="display:block;">
+            <h2>➕ Add a New Workshop</h2>
+
+            <label>Workshop Title</label>
+            <input id="workshop-title" type="text" placeholder="Example: Longboard Dancing 101">
+
+            <label>Schedule (Date & Time)</label>
+            <input id="workshop-schedule" type="text" placeholder="June 21st, 4:00 PM">
+
+            <label>Price</label>
+            <input id="workshop-price" type="number" placeholder="40">
+
+            <label>Description</label>
+            <textarea id="workshop-description" placeholder="Describe what students will learn..."></textarea>
+
+            <button class="panel-link" onclick="Staff.addWorkshop()">Add Workshop</button>
+        </div>
+
+        <!-- Workshop List Panel -->
+        <div class="panel" style="display:block; margin-top:40px;">
+            <h2>🎓 Your Workshops</h2>
+            <div id="workshop-list"></div>
+        </div>
+
+    </section>
+
+    <!-- Staff Logic -->
+    <script src="/network/staff/js/staff.js"></script>
+    <script>
+        Staff.loadWorkshops();
+    </script>
+
+</body>
+</html>

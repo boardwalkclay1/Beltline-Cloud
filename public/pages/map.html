@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Beltline Map — Boardwalk Beltline</title>
+
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- LEAFLET -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <style>
+        .logo {
+            width: 160px;
+            height: 60px;
+            background-image: url('../assets/img/bbi-logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 90px;
+            left: 20px;
+            background: rgba(0,0,0,0.92);
+            padding: 25px;
+            border-radius: 14px;
+            border: 1px solid var(--ember-soft);
+            z-index: 9999;
+        }
+        .mobile-menu a {
+            display: block;
+            margin: 14px 0;
+            color: var(--yellow);
+            font-family: 'Cinzel', serif;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+        }
+
+        #map {
+            width: 100%;
+            height: calc(100vh - 90px);
+        }
+
+        .map-tools {
+            position: absolute;
+            top: 100px;
+            right: 20px;
+            z-index: 5000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .map-tool-btn {
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(0,0,0,0.8);
+            border: 1px solid var(--ember-soft);
+            color: var(--yellow);
+            font-family: 'Cinzel', serif;
+            cursor: pointer;
+        }
+        .map-tool-btn:hover {
+            background: rgba(255,155,40,0.18);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LOADER -->
+    <div id="loading-screen">
+        <div class="loading-icon"></div>
+        <div class="loading-bar"><div class="loading-bar-fill"></div></div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="logo" onclick="toggleMenu()"></div>
+
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="workshops.html">Workshops</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="beltline.html">Beltline Feed</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="beltline-courtesy.html">Courtesy</a></li>
+            <li><a href="marker-system.html">Marker System</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="workshops.html">Workshops</a>
+            <a href="shop.html">Shop</a>
+            <a href="beltline.html">Beltline Feed</a>
+            <a href="community.html">Community</a>
+            <a href="beltline-courtesy.html">Courtesy</a>
+            <a href="marker-system.html">Marker System</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- FLOATING TOOLBELT -->
+    <div class="map-tools">
+        <button class="map-tool-btn" onclick="zoomFull()">Full Beltline</button>
+        <button class="map-tool-btn" onclick="zoomEastside()">Eastside</button>
+        <button class="map-tool-btn" onclick="zoomWestside()">Westside</button>
+        <button class="map-tool-btn" onclick="zoomNorthside()">Northside</button>
+        <button class="map-tool-btn" onclick="zoomSouthside()">Southside</button>
+        <button class="map-tool-btn" onclick="toggleLayer('grocery')">Grocery</button>
+        <button class="map-tool-btn" onclick="toggleLayer('parks')">Parks</button>
+        <button class="map-tool-btn" onclick="toggleLayer('water')">Water</button>
+    </div>
+
+    <!-- MAP -->
+    <div id="map"></div>
+
+    <!-- LEAFLET -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loading-screen");
+            setTimeout(() => loader.classList.add("hidden"), 300);
+        });
+
+        // MAP INIT
+        const map = L.map('map').setView([33.7677, -84.3615], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19
+        }).addTo(map);
+
+        // SIMPLIFIED TRAIL COORDS (PLACEHOLDER — YOU CAN REFINE)
+        const eastsideCoords = [
+            [33.772, -84.363],
+            [33.768, -84.361],
+            [33.764, -84.359],
+            [33.760, -84.360]
+        ];
+
+        const westsideCoords = [
+            [33.772, -84.420],
+            [33.768, -84.415],
+            [33.764, -84.410]
+        ];
+
+        const northsideCoords = [
+            [33.800, -84.370],
+            [33.790, -84.365],
+            [33.780, -84.362]
+        ];
+
+        const southsideCoords = [
+            [33.730, -84.380],
+            [33.740, -84.375],
+            [33.750, -84.370]
+        ];
+
+        // POLYLINES
+        const eastsideTrail = L.polyline(eastsideCoords, { color: "red", weight: 6 }).addTo(map);
+        const westsideTrail = L.polyline(westsideCoords, { color: "blue", weight: 6 }).addTo(map);
+        const northsideTrail = L.polyline(northsideCoords, { color: "green", weight: 6 }).addTo(map);
+        const southsideTrail = L.polyline(southsideCoords, { color: "purple", weight: 6 }).addTo(map);
+
+        const fullTrail = L.featureGroup([
+            eastsideTrail,
+            westsideTrail,
+            northsideTrail,
+            southsideTrail
+        ]);
+
+        // MARKER LAYERS
+        const groceryLayer = L.layerGroup().addTo(map);
+        const parksLayer = L.layerGroup().addTo(map);
+        const waterLayer = L.layerGroup().addTo(map);
+
+        // SAMPLE MARKERS
+        L.marker([33.7599, -84.3633]).bindPopup('Kroger – Ponce').addTo(groceryLayer);
+        L.marker([33.7715, -84.3639]).bindPopup('Piedmont Park').addTo(parksLayer);
+        L.marker([33.7645, -84.3602]).bindPopup('Water Fountain – Eastside').addTo(waterLayer);
+
+        const layers = { grocery: groceryLayer, parks: parksLayer, water: waterLayer };
+
+        function toggleLayer(key) {
+            const layer = layers[key];
+            if (map.hasLayer(layer)) map.removeLayer(layer);
+            else map.addLayer(layer);
+        }
+
+        // SUPER ZOOM MODES
+        function zoomFull() {
+            map.fitBounds(fullTrail.getBounds());
+        }
+        function zoomEastside() {
+            map.fitBounds(eastsideTrail.getBounds());
+        }
+        function zoomWestside() {
+            map.fitBounds(westsideTrail.getBounds());
+        }
+        function zoomNorthside() {
+            map.fitBounds(northsideTrail.getBounds());
+        }
+        function zoomSouthside() {
+            map.fitBounds(southsideTrail.getBounds());
+        }
+    </script>
+
+</body>
+</html>

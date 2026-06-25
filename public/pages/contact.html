@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact — Boardwalk Beltline</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+
+    <!-- SOCIAL PREVIEW -->
+    <meta property="og:title" content="Contact — Boardwalk Beltline">
+    <meta property="og:description" content="Reach out to Boardwalk Clay for workshops, collaborations, community projects, and Beltline safety initiatives.">
+    <meta property="og:image" content="../assets/img/bb-inc.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boardwalkbeltline.com/pages/contact.html">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact — Boardwalk Beltline">
+    <meta name="twitter:description" content="Connect with Boardwalk Clay on the Atlanta Beltline.">
+    <meta name="twitter:image" content="../assets/img/bb-inc.png">
+
+    <!-- MASTER CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* LOGO AS BURGER MENU */
+        .logo {
+            width: 160px;
+            height: 60px;
+            background-image: url('../assets/img/bbi-logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: left center;
+            cursor: pointer;
+        }
+
+        /* MOBILE MENU */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 90px;
+            right: 20px;
+            background: rgba(0,0,0,0.92);
+            padding: 25px;
+            border-radius: 14px;
+            border: 1px solid var(--ember-soft);
+            z-index: 999;
+        }
+        .mobile-menu a {
+            display: block;
+            margin: 14px 0;
+            color: var(--yellow);
+            font-family: 'Cinzel', serif;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+        }
+
+        /* FORM INPUTS */
+        #contactForm input,
+        #contactForm select,
+        #contactForm textarea {
+            width: 100%;
+            padding: 14px 18px;
+            margin: 10px 0 22px 0;
+            border-radius: 12px;
+            border: 1px solid var(--ember-soft);
+            background: rgba(0,0,0,0.55);
+            color: var(--yellow);
+            font-family: 'Crimson Pro', serif;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.25s ease;
+            box-shadow: inset 0 0 10px rgba(255,155,40,0.15);
+        }
+
+        #contactForm input:focus,
+        #contactForm select:focus,
+        #contactForm textarea:focus {
+            border-color: var(--ember);
+            box-shadow:
+                0 0 12px rgba(255,155,40,0.45),
+                inset 0 0 12px rgba(255,155,40,0.35);
+            background: rgba(0,0,0,0.75);
+        }
+
+        #contactForm select {
+            appearance: none;
+            background-image: linear-gradient(45deg, transparent 50%, var(--ember) 50%),
+                              linear-gradient(135deg, var(--ember) 50%, transparent 50%);
+            background-position: calc(100% - 18px) calc(50% - 6px),
+                                 calc(100% - 12px) calc(50% + 6px);
+            background-size: 6px 6px, 6px 6px;
+            background-repeat: no-repeat;
+        }
+
+        #contactForm textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        #contactForm button.btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 999px;
+            background: var(--ember);
+            color: var(--black);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s ease;
+            box-shadow: 0 0 12px rgba(255,155,40,0.35);
+        }
+
+        #contactForm button.btn:hover {
+            background: var(--red);
+            color: var(--white);
+            box-shadow:
+                0 0 16px rgba(255,155,40,0.55),
+                0 0 28px rgba(255,155,40,0.35);
+            transform: translateY(-2px);
+        }
+
+        /* MESSAGE SENT */
+        #messageSent {
+            display: none;
+            margin-top: 25px;
+            padding: 22px;
+            border-radius: 14px;
+            background: rgba(0,255,80,0.12);
+            border: 1px solid rgba(0,255,80,0.35);
+            color: #b6ffcb;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            text-align: center;
+            box-shadow:
+                0 0 12px rgba(0,255,80,0.25),
+                inset 0 0 12px rgba(0,255,80,0.15);
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LOADING SCREEN -->
+    <div id="loading-screen">
+        <div class="loading-icon"></div>
+        <div class="loading-bar"><div class="loading-bar-fill"></div></div>
+    </div>
+
+    <!-- BACKGROUND -->
+    <div class="page-bg" style="background-image: url('../assets/img/bb-inc.png');"></div>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="logo" onclick="toggleMenu()"></div>
+
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="workshops.html">Workshops</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="beltline.html">Beltline Feed</a></li>
+            <li><a href="community.html">Community</a></li>
+        </ul>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="workshops.html">Workshops</a>
+            <a href="shop.html">Shop</a>
+            <a href="beltline.html">Beltline Feed</a>
+            <a href="community.html">Community</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <section class="page-content">
+        <h1>Contact Boardwalk Clay</h1>
+        <p>Movement. Music. Motion. Community.</p>
+
+        <!-- CONTACT INFO -->
+        <div class="card contact-card">
+            <h2>Direct Contact</h2>
+            <p><strong>Email:</strong> 
+                <a href="mailto:boardwalkclay1@gmail.com?subject=Contact%20from%20Website&body=Hey%20Clay%2C%20I%20wanted%20to%20reach%20out%20about..."
+                   style="color:var(--yellow); text-decoration:underline;">
+                   boardwalkclay1@gmail.com
+                </a>
+            </p>
+
+            <p><strong>Instagram:</strong> 
+                <a href="https://instagram.com/boardwalk_clay" target="_blank" style="color:var(--yellow); text-decoration:underline;">
+                    @boardwalk_clay
+                </a>
+            </p>
+
+            <p><strong>Location:</strong> Atlanta Beltline, GA</p>
+        </div>
+
+        <!-- WHY CONTACT -->
+        <div class="card contact-card">
+            <h2>Why Reach Out?</h2>
+            <ul style="text-align:left; max-width:600px; margin:20px auto;">
+                <li>• Workshops & lessons</li>
+                <li>• Collaborations & filming</li>
+                <li>• Community events</li>
+                <li>• Safety & awareness</li>
+                <li>• Media & interviews</li>
+                <li>• Business inquiries</li>
+            </ul>
+        </div>
+
+        <!-- FORM -->
+        <div class="card contact-card">
+            <h2>Send a Message</h2>
+
+            <form id="contactForm" style="max-width:600px; margin:0 auto; text-align:left;">
+                <label>Name</label>
+                <input type="text" name="name" required>
+
+                <label>Email</label>
+                <input type="email" name="email" required>
+
+                <label>Reason for Contact</label>
+                <select name="reason" required>
+                    <option>Workshop Inquiry</option>
+                    <option>Private Lesson</option>
+                    <option>Collaboration</option>
+                    <option>Event / Meetup</option>
+                    <option>Safety / Community</option>
+                    <option>Media / Interview</option>
+                    <option>Business Inquiry</option>
+                    <option>Other</option>
+                </select>
+
+                <label>Message</label>
+                <textarea name="message" rows="5" required></textarea>
+
+                <button class="btn" type="submit">Send Message</button>
+            </form>
+
+            <div id="messageSent">
+                Your message has been sent! Clay will get back to you soon.
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        /* LOGO = BURGER MENU */
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        /* FORM CONFIRMATION */
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            document.getElementById("messageSent").style.display = "block";
+            this.reset();
+        });
+
+        /* ANDROID-SAFE LOADER */
+        document.addEventListener("DOMContentLoaded", () => {
+            const loader = document.getElementById("loading-screen");
+            setTimeout(() => loader.classList.add("hidden"), 800);
+        });
+    </script>
+
+</body>
+</html>

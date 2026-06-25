@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About — Boardwalk Beltline</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+
+    <!-- SOCIAL PREVIEW -->
+    <meta property="og:title" content="About Boardwalk Clay — Boardwalk Beltline">
+    <meta property="og:description" content="The journey, mission, and movement behind Boardwalk Beltline Inc.">
+    <meta property="og:image" content="../assets/img/bb-hat.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://boardwalkbeltline.com/pages/about.html">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Boardwalk Clay — Boardwalk Beltline">
+    <meta name="twitter:description" content="Longboard dancing, community building, public safety, and Beltline culture.">
+    <meta name="twitter:image" content="../assets/img/bb-hat.png">
+
+    <!-- MASTER CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* LOGO AS BURGER MENU */
+        .logo {
+            width: 160px;
+            height: 60px;
+            background-image: url('../assets/img/bbi-logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: left center;
+            cursor: pointer;
+        }
+
+        /* MOBILE MENU */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 90px;
+            right: 20px;
+            background: rgba(0,0,0,0.92);
+            padding: 25px;
+            border-radius: 14px;
+            border: 1px solid var(--ember-soft);
+            z-index: 999;
+        }
+        .mobile-menu a {
+            display: block;
+            margin: 14px 0;
+            color: var(--yellow);
+            font-family: 'Cinzel', serif;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+        }
+
+        /* DROPDOWNS */
+        .dropdown {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .dropdown-btn {
+            width: 100%;
+            padding: 14px 20px;
+            background: rgba(255,155,40,0.15);
+            border: 1px solid var(--ember-soft);
+            border-radius: 12px;
+            color: var(--yellow);
+            font-family: 'Cinzel', serif;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .dropdown-btn:hover {
+            background: rgba(255,155,40,0.25);
+        }
+        .dropdown-content {
+            display: none;
+            padding: 20px;
+            background: rgba(0,0,0,0.55);
+            border: 1px solid var(--ember-soft);
+            border-radius: 12px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LOADING SCREEN -->
+    <div id="loading-screen">
+        <div class="loading-icon"></div>
+        <div class="loading-bar"><div class="loading-bar-fill"></div></div>
+    </div>
+
+    <!-- BACKGROUND -->
+    <div class="page-bg" style="background-image: url('../assets/img/bb-hat.png');"></div>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="logo" onclick="toggleMenu()"></div>
+
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="workshops.html">Workshops</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="beltline.html">Beltline Feed</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="../index.html">Home</a>
+            <a href="workshops.html">Workshops</a>
+            <a href="shop.html">Shop</a>
+            <a href="beltline.html">Beltline Feed</a>
+            <a href="community.html">Community</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <section class="page-content">
+        <h1>About Boardwalk Clay</h1>
+        <p>Longboard dancer. Creator. Builder. Beltline storyteller.</p>
+
+        <!-- JOURNEY -->
+        <div class="card">
+            <h2>The Journey</h2>
+            <p>
+                Boardwalk Clay began as a skater with a board, a camera, and a mission:  
+                to capture the rhythm, movement, and soul of the Atlanta Beltline.
+            </p>
+            <p>
+                What started as longboard dancing evolved into a lifestyle —  
+                a way to connect people, uplift the community, and bring energy  
+                to the spaces we share.
+            </p>
+            <p>
+                After years of skating the Beltline — sunrise rides, late‑night sessions,  
+                community meetups, and thousands of miles — the vision grew into something bigger.
+            </p>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div class="card">
+            <h2>Years on the Beltline</h2>
+            <p>
+                The Beltline isn’t just a path — it’s a living, breathing part of Atlanta.  
+                Boardwalk Clay has spent years skating it, documenting it, and connecting  
+                with the people who make it special.
+            </p>
+            <p>
+                From Old Fourth Ward to Piedmont Park, from Krog Street to the Westside Trail,  
+                the Beltline has shaped our movement, creativity, and mission.
+            </p>
+        </div>
+
+        <!-- MISSION -->
+        <div class="card">
+            <h2>The Mission — Boardwalk Beltline Inc.</h2>
+            <p>
+                Boardwalk Beltline Inc. exists to teach, build, and uplift the community  
+                through movement, creativity, and communication.
+            </p>
+            <p>
+                Our mission is to make the Beltline safer, more connected, and more informed.
+            </p>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDrop(1)">What We Stand For</button>
+                <div class="dropdown-content" id="drop1">
+                    <p>• Public safety communication</p>
+                    <p>• Community education</p>
+                    <p>• Creative expression</p>
+                    <p>• Beltline culture preservation</p>
+                    <p>• Youth empowerment</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEACHING -->
+        <div class="card">
+            <h2>Teaching & Community Building</h2>
+            <p>
+                Through workshops, events, and hands‑on sessions, Boardwalk Clay teaches  
+                longboard dancing, flow, and freestyle expression.
+            </p>
+            <p>
+                But it goes deeper than skating — it’s about confidence, discipline,  
+                creativity, and community.
+            </p>
+
+            <a class="btn" href="workshops.html">View Workshops</a>
+        </div>
+
+        <!-- BELTLINE EXPERIENCE -->
+        <div class="card">
+            <h2>The Beltline Experience</h2>
+            <p>Boardwalk Beltline Inc. is building a full Beltline ecosystem:</p>
+
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDrop(2)">Explore Features</button>
+                <div class="dropdown-content" id="drop2">
+                    <p>• Interactive Beltline maps</p>
+                    <p>• Food reviews & local spot highlights</p>
+                    <p>• Safety tips & community guidelines</p>
+                    <p>• Real‑time updates & communication</p>
+                    <p>• Our own Beltline media station</p>
+                    <p>• Lifestyle videos, stories, and culture coverage</p>
+                </div>
+            </div>
+
+            <a class="btn" href="beltline.html">Visit the Beltline Feed</a>
+        </div>
+
+        <!-- VISION -->
+        <div class="card">
+            <h2>The Vision</h2>
+            <p>
+                The vision is simple:  
+                build something that lasts — something that helps people,  
+                represents Atlanta, and inspires movement, creativity, and connection.
+            </p>
+        </div>
+
+    </section>
+
+    <script>
+        /* LOGO = BURGER MENU */
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function toggleDrop(n) {
+            const box = document.getElementById("drop" + n);
+            box.style.display = box.style.display === "block" ? "none" : "block";
+        }
+
+        /* ANDROID-SAFE LOADER */
+        document.addEventListener("DOMContentLoaded", () => {
+            const loader = document.getElementById("loading-screen");
+            setTimeout(() => loader.classList.add("hidden"), 800);
+        });
+    </script>
+
+</body>
+</html>
