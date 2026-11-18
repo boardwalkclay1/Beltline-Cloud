@@ -204,8 +204,8 @@
                 <label>Notes (optional)</label>
                 <textarea name="notes" rows="4"></textarea>
 
-                <button class="btn" type="submit">Reserve Spot</button>
-                <div id="status" class="status-msg"></div>
+                <button class="btn" type="submit" disabled>Reservations unavailable</button>
+                <div id="status" class="status-msg">Online reservations are not available yet. Please contact us to inquire about workshops.</div>
             </form>
         </div>
 
@@ -223,46 +223,10 @@
         });
 
         const form = document.getElementById('reserveForm');
-        const statusEl = document.getElementById('status');
-
-        form.addEventListener('submit', async (e) => {
+        form.addEventListener('submit', (e) => {
             e.preventDefault();
-            statusEl.textContent = "Creating booking...";
-            const formData = new FormData(form);
-            const payload = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                discipline: formData.get('discipline'),
-                instructor: formData.get('instructor'),
-                date: formData.get('date'),
-                time: formData.get('time'),
-                notes: formData.get('notes')
-            };
-
-            try {
-                const res = await fetch('/api/book', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const data = await res.json();
-                if (data.checkoutUrl) {
-                    statusEl.textContent = "Redirecting to payment...";
-                    window.location = data.checkoutUrl;
-                } else {
-                    statusEl.textContent = "Error starting payment.";
-                }
-            } catch (err) {
-                statusEl.textContent = "Error connecting to server.";
-            }
         });
 
-        const params = new URLSearchParams(window.location.search);
-        if (params.get('status') === 'success') {
-            statusEl.textContent = "Payment successful. Your spot is reserved.";
-        } else if (params.get('status') === 'cancel') {
-            statusEl.textContent = "Payment canceled. You can try again.";
-        }
     </script>
 
 </body>

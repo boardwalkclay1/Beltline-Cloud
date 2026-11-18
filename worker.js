@@ -5,6 +5,16 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
+    // The legacy booking and staff APIs use a different schema and have no
+    // user authentication. Do not expose them until those flows are rebuilt.
+    const publicFeeds = new Set([
+      "/api/network/vendors", "/api/network/services", "/api/network/products",
+      "/api/network/explore", "/api/network/vendor", "/api/network/workshops"
+    ]);
+    if (path.startsWith("/api/") && !publicFeeds.has(path)) {
+      return json({ error: "This feature is not available yet." }, 503);
+    }
+
     // PUBLIC WORKSHOPS (existing)
     if (path === "/api/staff" && request.method === "GET") return listStaff(env);
     if (path === "/api/staff/profile" && request.method === "GET") return staffProfile(url, env);
@@ -61,7 +71,8 @@ export default {
     if (path === "/api/admin/network/analytics" && request.method === "GET")
       return admin(request, env, () => adminAnalytics(env));
 
-    return new Response("Not found", { status: 404 });
+    if (path.startsWith("/api/")) return json({ error: "Not found" }, 404);
+    return env.ASSETS.fetch(request);
   }
 };
 
@@ -74,7 +85,7 @@ function json(data, status = 200) {
 }
 
 function admin(request, env, handler) {
-  if (request.headers.get("x-admin-token") !== env.ADMIN_TOKEN)
+  if (!env.ADMIN_TOKEN || request.headers.get("x-admin-token") !== env.ADMIN_TOKEN)
     return new Response("Unauthorized", { status: 401 });
   return handler();
 }
@@ -819,14 +830,18 @@ async function listVendors(env) {
 
 async function listServices(env) {
   const { results } = await env.DB_network.prepare(
-    "SELECT id, vendorId, name, description, price, duration, photoUrl, featured FROM services ORDER BY featured DESC, createdAt DESC"
+    `SELECT s.id, s.vendorId, s.name, s.description, s.price, s.duration, s.photoUrl, s.featured
+     FROM services s JOIN vendors v ON v.id = s.vendorId
+     WHERE v.active = 1 ORDER BY s.featured DESC, s.createdAt DESC`
   ).all();
   return json(results);
 }
 
 async function listProducts(env) {
   const { results } = await env.DB_network.prepare(
-    "SELECT id, vendorId, name, description, price, photoUrl, stock FROM products ORDER BY createdAt DESC"
+    `SELECT p.id, p.vendorId, p.name, p.description, p.price, p.photoUrl, p.stock
+     FROM products p JOIN vendors v ON v.id = p.vendorId
+     WHERE v.active = 1 ORDER BY p.createdAt DESC`
   ).all();
   return json(results);
 }
@@ -843,7 +858,7 @@ async function getVendorFull(url, env) {
   if (!id) return json({ error: "Missing id" }, 400);
 
   const vendor = await env.DB_network.prepare(
-    "SELECT * FROM vendors WHERE id = ? AND active = 1"
+    "SELECT id, name, bio, photoUrl, tags, categories FROM vendors WHERE id = ? AND active = 1"
   )
     .bind(id)
     .first();
@@ -876,7 +891,8 @@ async function listWorkshops(env) {
     `SELECT w.id, w.title, w.description, w.schedule, w.price,
             v.name AS hostName
      FROM workshops w
-     LEFT JOIN vendors v ON v.id = w.vendorId
+     JOIN vendors v ON v.id = w.vendorId
+     WHERE v.active = 1
      ORDER BY w.createdAt DESC`
   ).all();
   return json(results);
